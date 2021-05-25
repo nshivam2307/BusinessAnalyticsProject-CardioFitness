@@ -1,0 +1,31 @@
+import numpy as np
+import pandas as pd
+mydata=pd.read_csv('CardioGoodFitness-1.csv')
+
+mydata.head()
+mydata.head(10)
+mydata.tail()
+mydata.iloc[10:10+5]
+mydata.shape
+mydata.dtypes
+mydata.info()
+#From info we infer that 180 rows are non-null i.e. no missing data
+#Also it shows the count of different Dtypes
+mydata.isnull()
+mydata.isnull().sum
+
+#Plot a histogram for all columns of the dataset
+import matplotlib.pyplot as plt
+mydata.hist()
+mydata.hist(figsize=(20,40))
+#figsize is used to give width and height of each graph
+
+mydata.describe()
+mydata.describe(include='all')
+# top- indicates the product whose data is max
+# and frequency indicates the no. of rows of top data
+
+import seaborn
+sns.boxplot(x='Gender',y='Age',data=mydata)
+
+mydata.crosstab(mydata['Product'],mydata['Gender'])
